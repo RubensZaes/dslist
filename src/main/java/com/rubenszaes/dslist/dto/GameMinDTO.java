@@ -1,6 +1,7 @@
 package com.rubenszaes.dslist.dto;
 
 import com.rubenszaes.dslist.entities.Game;
+import com.rubenszaes.dslist.projections.GameMinProjection;
 
 public class GameMinDTO {
     private Long id;
@@ -11,12 +12,20 @@ public class GameMinDTO {
 
     public GameMinDTO(){}
 
-    public GameMinDTO(Game entity) {
-        this.id = entity.getId();
-        this.title = entity.getTitle();
-        this.year = entity.getYear();
-        this.imgUrl = entity.getImgUrl();
-        this.shortDescription = entity.getShortDescription();
+    public GameMinDTO(Game game) {
+        this.id = game.getId();
+        this.title = game.getTitle();
+        this.year = game.getYear();
+        this.imgUrl = game.getImgUrl();
+        this.shortDescription = game.getShortDescription();
+    }
+
+    public GameMinDTO(GameMinProjection gameMinProjection) {
+        this.id = gameMinProjection.getId();
+        this.title = gameMinProjection.getTitle();
+        this.year = gameMinProjection.getYear();
+        this.imgUrl = gameMinProjection.getImgUrl();
+        this.shortDescription = gameMinProjection.getShortDescription();
     }
 
     public Long getId() {
